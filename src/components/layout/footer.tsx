@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -7,7 +8,15 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div>
-            <h3 className="font-serif text-white text-xl mb-6">INDIAN RHINO</h3>
+            <div className="mb-6">
+              <Image 
+                src="/images/Blue and White Business Company Logo (2000 x 1000 px) (2000 x 500 px) (1700 x 500 px) (1).png" 
+                alt="Indian Rhino Logo" 
+                width={240} 
+                height={120}
+                className="object-contain"
+              />
+            </div>
             <p className="text-sm leading-relaxed max-w-xs text-light-gray/80">
               Built on the idea that clothing should be simple, strong, and made to last.
             </p>

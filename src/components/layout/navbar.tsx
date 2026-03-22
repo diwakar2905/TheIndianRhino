@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, User, ShoppingCart } from "lucide-react";
 
 export function Navbar() {
@@ -18,8 +19,15 @@ export function Navbar() {
       <nav className="w-full text-black px-8 py-4 md:py-5 flex flex-wrap items-center justify-between relative z-10">
         {/* Logo */}
         <div className="flex-1">
-          <Link href="/" className="font-serif text-[24px] md:text-[28px] tracking-[0.15em] font-bold">
-            INDIAN RHINO
+          <Link href="/" className="inline-block">
+            <Image
+              src="/images/Blue and White Business Company Logo (2000 x 1000 px) (2000 x 500 px) (1700 x 500 px) (2).png"
+              alt="Indian Rhino Logo"
+              width={240}
+              height={120}
+              className="h-auto"
+              priority
+            />
           </Link>
         </div>
 
