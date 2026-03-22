@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { ProductCard } from "@/components/ui/ProductCard";
 
 export default function Home() {
   return (
@@ -25,19 +26,19 @@ export default function Home() {
           
           <div className="relative z-10 max-w-[1200px] mx-auto px-8 w-full flex justify-start">
             <FadeIn>
-              <h1 className="font-serif text-[56px] md:text-[64px] text-white leading-[1.1] mb-6 tracking-wide">
+              <h1 className="font-serif text-[56px] md:text-[64px] text-white leading-[1.1] mb-6 tracking-[0.15em]">
                 INDIAN RHINO<br />
-                <span className="italic font-light">Built Strong. Worn Simple.</span>
+                <span className="italic font-light text-[40px] md:text-[48px]">Life is a beautiful sport.</span>
               </h1>
-              <p className="text-white text-[16px] md:text-[18px] max-w-md font-sans mb-12 opacity-90 leading-[1.6]">
-                Premium essentials designed for everyday wear. No clutter, just quality.
+              <p className="text-white text-[16px] md:text-[18px] max-w-md font-sans mb-12 opacity-[0.85] leading-[1.6]">
+                Embrace the heritage. Premium polos and essentials offering unwavering elegance and freedom of movement since 2026.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/shop?category=polos">
                   <Button variant="secondary" className="w-full sm:w-auto">SHOP POLOS</Button>
                 </Link>
                 <Link href="/shop?category=tshirts">
-                  <Button variant="secondary" className="w-full sm:w-auto">SHOP T-SHIRTS</Button>
+                  <Button variant="secondary" className="w-full sm:w-auto">SHOP ESSENTIAL TEES</Button>
                 </Link>
               </div>
             </FadeIn>
@@ -45,7 +46,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: CATEGORIES */}
-        <section className="py-[80px] bg-white">
+        <section className="py-[100px] bg-white">
           <div className="max-w-[1200px] mx-auto px-8">
             <FadeIn>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
@@ -77,12 +78,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SECTION 2.5: THE POLO HERITAGE */}
+        <section className="py-[100px] bg-beige">
+          <div className="max-w-[1200px] mx-auto px-8">
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+              <div className="w-full md:w-1/2">
+                <FadeIn>
+                  <div className="relative aspect-[4/5] bg-white border border-light-gray/30 p-8 flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      <Image src="/images/polo_card.png" alt="Classic Polo" fill className="object-contain hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  </div>
+                </FadeIn>
+              </div>
+              <div className="w-full md:w-1/2">
+                <FadeIn delay={0.2}>
+                  <h2 className="font-sans font-bold text-[14px] uppercase tracking-[0.2em] text-forest mb-4">The Iconic Polo</h2>
+                  <h3 className="font-serif text-[36px] md:text-[48px] text-black leading-tight mb-6 tracking-[0.15em]">
+                    A timeless classic. <br />Invented for movement, <br />perfected for elegance.
+                  </h3>
+                  <p className="font-sans text-[16px] text-dark-gray mb-8 leading-relaxed max-w-md">
+                    Lightweight, breathable, and sharp. The Rhino Polo features our signature cotton piqué, giving you unparalleled comfort whether on the court or in the city.
+                  </p>
+                  <Link href="/shop?category=polos">
+                    <Button variant="primary">DISCOVER THE POLO</Button>
+                  </Link>
+                </FadeIn>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 3: FEATURED PRODUCTS */}
-        <section className="py-[80px] bg-white border-t border-light-gray/20">
+        <section className="py-[100px] bg-white border-t border-light-gray/20">
           <div className="max-w-[1200px] mx-auto px-8">
             <FadeIn>
               <div className="text-center mb-16">
-                <h2 className="font-serif text-[36px] md:text-[42px] tracking-wide text-black relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-black">
+                <h2 className="font-serif text-[36px] md:text-[42px] tracking-[0.15em] uppercase text-black relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-black">
                   DROP 001 — FOUNDERS COLLECTION
                 </h2>
               </div>
@@ -90,28 +122,13 @@ export default function Home() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px]">
               {[
-                { name: "Rhino Classic Polo", price: "₹1,299", img: "/images/polo_card.png" },
-                { name: "Essential White Tee", price: "₹899", img: "/images/tshirt_card.png" },
-                { name: "Premium Oxford Shirt", price: "₹1,899", img: "/images/shirt_card.png" },
-                { name: "Everyday Black Tee", price: "₹899", img: "/images/tshirt_card.png" }, // Reusing image
+                { id: "1", name: "Rhino Classic Polo", price: "₹1,299", images: ["/images/polo_card.png", "/images/hero_polo.png"] },
+                { id: "2", name: "Essential White Tee", price: "₹899", images: ["/images/tshirt_card.png", "/images/shirt_card.png"] },
+                { id: "3", name: "Premium Oxford Shirt", price: "₹1,899", images: ["/images/shirt_card.png", "/images/polo_card.png"] },
+                { id: "4", name: "Everyday Black Tee", price: "₹899", images: ["/images/tshirt_card.png", "/images/hero_polo.png"] },
               ].map((product, idx) => (
-                <FadeIn key={idx} delay={idx * 0.1}>
-                  <Link href="/product/1" className="group block text-center">
-                    <div className="relative aspect-[3/4] mb-6 overflow-hidden bg-beige">
-                      <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                        <Image src={product.img} alt={product.name} fill className="object-cover" />
-                      </div>
-                      
-                      {/* Hover Overlay Button */}
-                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                        <Button variant="primary" className="shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                          Add to Cart
-                        </Button>
-                      </div>
-                    </div>
-                    <h3 className="font-sans text-[16px] md:text-[20px] tracking-wide mb-2 text-black">{product.name}</h3>
-                    <p className="font-sans text-[14px] text-dark-gray">{product.price}</p>
-                  </Link>
+                <FadeIn key={product.id} delay={idx * 0.1}>
+                  <ProductCard {...product} />
                 </FadeIn>
               ))}
             </div>
@@ -119,10 +136,10 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: BRAND STORY BANNER */}
-        <section className="py-[120px] bg-beige">
+        <section className="py-[100px] bg-beige">
           <div className="max-w-[800px] mx-auto px-8 text-center text-black">
             <FadeIn>
-              <h2 className="font-serif text-[36px] md:text-[42px] mb-8 leading-[1.2]">
+              <h2 className="font-serif text-[36px] md:text-[42px] tracking-[0.15em] uppercase mb-8 leading-[1.2]">
                 Strength. Simplicity. Timeless Design.
               </h2>
               <p className="font-sans text-[16px] md:text-[18px] leading-[1.8] mb-12 max-w-2xl mx-auto opacity-80">
@@ -137,10 +154,10 @@ export default function Home() {
         </section>
 
         {/* SECTION 5: NEWSLETTER */}
-        <section className="py-[120px] bg-white border-b border-light-gray/40">
+        <section className="py-[100px] bg-white border-b border-light-gray/40">
           <div className="max-w-[700px] mx-auto px-8 text-center text-black">
             <FadeIn>
-              <h2 className="font-serif text-[36px] tracking-widest uppercase mb-4">Join The Herd</h2>
+              <h2 className="font-serif text-[36px] tracking-[0.15em] uppercase mb-4">Join The Herd</h2>
               <p className="font-sans text-[14px] md:text-[16px] mb-10 opacity-70">
                 Be the first to know about new drops and exclusive releases.
               </p>
@@ -158,7 +175,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 6: INSTAGRAM GRID */}
-        <section className="py-[80px] bg-white">
+        <section className="py-[100px] bg-white">
           <div className="max-w-[1200px] mx-auto px-8 mb-12 text-center">
             <FadeIn>
               <h2 className="font-sans text-[20px] tracking-[0.2em] font-bold text-black hover:text-forest transition-colors transition-colors">
@@ -169,7 +186,7 @@ export default function Home() {
           {/* Edge to edge grid on mobile, margin on desktop if desired */}
           <div className="grid grid-cols-2 md:grid-cols-6 gap-0">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <a href="#" key={i} className="relative aspect-square overflow-hidden group">
+              <a href="https://instagram.com/indianrhino" target="_blank" rel="noreferrer" key={i} className="relative aspect-square overflow-hidden group">
                 <Image 
                   src={
                     i % 3 === 0 

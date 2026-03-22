@@ -54,7 +54,7 @@ export default function ShopPage() {
                     <h3 className="font-sans font-bold text-[14px] uppercase tracking-widest mb-4">Category</h3>
                     <ul className="space-y-3 text-[14px] text-dark-gray">
                       <li><label className="flex items-center gap-3 cursor-pointer hover:text-black transition-colors"><input type="checkbox" className="accent-black w-4 h-4 cursor-pointer" /> Polos</label></li>
-                      <li><label className="flex items-center gap-3 cursor-pointer hover:text-black transition-colors"><input type="checkbox" className="accent-black w-4 h-4 cursor-pointer" /> T-Shirts</label></li>
+                      <li><label className="flex items-center gap-3 cursor-pointer hover:text-black transition-colors"><input type="checkbox" className="accent-black w-4 h-4 cursor-pointer" /> Essential Tees</label></li>
                       <li><label className="flex items-center gap-3 cursor-pointer hover:text-black transition-colors"><input type="checkbox" className="accent-black w-4 h-4 cursor-pointer" /> Shirts</label></li>
                     </ul>
                   </div>

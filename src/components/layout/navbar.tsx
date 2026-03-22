@@ -1,63 +1,44 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { Search, User, ShoppingCart } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
-  
-  // If not on the homepage, navbar should be solid white instead of transparent
-  const isHome = pathname === '/';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navClasses = `fixed top-0 w-full z-50 transition-all duration-300 px-8 py-6 flex items-center justify-between ${
-    isScrolled || !isHome
-      ? "bg-white text-black border-b border-light-gray/50 py-4"
-      : "bg-transparent text-white"
-  }`;
-
-  const linkHover = "relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full";
+  const linkHover = "relative font-bold uppercase text-[12px] tracking-[0.15em] after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-0 after:bg-forest after:transition-all after:duration-300 hover:after:w-full hover:text-forest transition-colors";
 
   return (
-    <nav className={navClasses}>
-      {/* Logo */}
-      <div className="flex-1">
-        <Link href="/" className="font-serif text-2xl tracking-wider font-bold">
-          INDIAN RHINO
-        </Link>
+    <div className="fixed top-0 w-full z-50 flex flex-col bg-white border-b border-light-gray shadow-sm">
+      {/* Promo Bar */}
+      <div className="bg-forest text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium text-center py-2 px-4 shadow-sm relative z-20">
+        Complimentary Standard Shipping & Returns On All Orders
       </div>
 
-      {/* Center Links */}
-      <div className="flex-1 flex justify-center space-x-10 text-sm font-medium tracking-wide">
-        <Link href="/shop" className={linkHover}>Shop</Link>
-        <Link href="/shop?category=polos" className={linkHover}>Polos</Link>
-        <Link href="/shop?category=tshirts" className={linkHover}>T-Shirts</Link>
-        <Link href="/shop?category=shirts" className={linkHover}>Shirts</Link>
-        <Link href="/our-story" className={linkHover}>Our Story</Link>
-      </div>
+      {/* Main Navbar */}
+      <nav className="w-full text-black px-8 py-4 md:py-5 flex flex-wrap items-center justify-between relative z-10">
+        {/* Logo */}
+        <div className="flex-1">
+          <Link href="/" className="font-serif text-[24px] md:text-[28px] tracking-[0.15em] font-bold">
+            INDIAN RHINO
+          </Link>
+        </div>
 
-      {/* Right Icons */}
-      <div className="flex-1 flex justify-end space-x-6">
-        <button className="hover:opacity-70 transition-opacity"><Search size={20} strokeWidth={1.5} /></button>
-        <button className="hover:opacity-70 transition-opacity"><User size={20} strokeWidth={1.5} /></button>
-        <button className="hover:opacity-70 transition-opacity"><ShoppingCart size={20} strokeWidth={1.5} /></button>
-      </div>
-    </nav>
+        {/* Center Links (Desktop only for precision) */}
+        <div className="hidden lg:flex flex-1 justify-center space-x-10 text-[13px] text-black">
+          <Link href="/shop" className={linkHover}>SHOP</Link>
+          <Link href="/shop?category=polos" className={linkHover}>THE POLO</Link>
+          <Link href="/shop?category=tshirts" className={linkHover}>ESSENTIALS</Link>
+          <Link href="/shop?category=shirts" className={linkHover}>SHIRTS</Link>
+          <Link href="/our-story" className={linkHover}>OUR STORY</Link>
+        </div>
+
+        {/* Right Icons */}
+        <div className="flex-1 flex justify-end space-x-6 text-black items-center">
+          <Link href="/shop" className="hover:text-forest transition-colors"><Search size={22} strokeWidth={1.5} /></Link>
+          <Link href="/account" className="hover:text-forest transition-colors"><User size={22} strokeWidth={1.5} /></Link>
+          <Link href="/cart" className="hover:text-forest transition-colors"><ShoppingCart size={22} strokeWidth={1.5} /></Link>
+        </div>
+      </nav>
+    </div>
   );
 }

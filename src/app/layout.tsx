@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Built Strong. Worn Simple. Premium essentials designed for everyday wear.",
 };
 
+import { AuthProvider } from "@/components/providers/AuthProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased bg-white text-black min-h-screen flex flex-col">
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

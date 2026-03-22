@@ -55,7 +55,9 @@ export default function CheckoutPage() {
                     <p className="font-sans text-sm text-dark-gray text-center">After clicking &quot;Pay Now&quot;, you will be redirected to Razorpay to complete your purchase securely.</p>
                   </div>
                   
-                  <Button variant="primary" className="w-full py-4 text-[16px]">PAY NOW</Button>
+                  <Link href="/checkout/success" className="block w-full">
+                    <Button variant="primary" className="w-full py-4 text-[16px]">PAY NOW</Button>
+                  </Link>
                 </div>
               </div>
 

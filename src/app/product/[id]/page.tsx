@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { useAuth } from "@/components/providers/AuthProvider";
 import { ArrowLeft, Truck, RefreshCw } from "lucide-react";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
@@ -15,6 +19,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     colors: [{ name: "Forest Green", hex: "bg-forest" }, { name: "Black", hex: "bg-black" }, { name: "White", hex: "bg-white" }],
     sizes: ["S", "M", "L", "XL"]
   };
+
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0].name);
+  const { user } = useAuth();
 
   return (
     <>
@@ -67,7 +75,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     </div>
                     <div className="flex gap-3">
                       {product.sizes.map(size => (
-                        <button key={size} className="w-12 h-12 border border-light-gray flex items-center justify-center font-sans text-sm hover:border-black hover:bg-black hover:text-white transition-all">
+                        <button 
+                          key={size} 
+                          onClick={() => setSelectedSize(size)}
+                          className={`w-12 h-12 border flex items-center justify-center font-sans text-sm transition-all ${selectedSize === size ? 'border-black bg-black text-white' : 'border-light-gray hover:border-black hover:bg-black hover:text-white'}`}
+                        >
                           {size}
                         </button>
                       ))}
@@ -76,16 +88,23 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
                   {/* Color Selection */}
                   <div className="mb-10">
-                    <span className="font-sans font-bold text-sm tracking-wide uppercase mb-3 block">Color: <span className="font-normal text-dark-gray">Forest Green</span></span>
+                    <span className="font-sans font-bold text-sm tracking-[0.1em] uppercase mb-4 block">Color: <span className="font-normal text-dark-gray ml-1">{selectedColor}</span></span>
                     <div className="flex gap-4">
                       {product.colors.map(color => (
-                        <button key={color.name} className={`w-8 h-8 rounded-full ${color.hex} border-2 border-white ring-1 ring-light-gray hover:ring-black transition-all outline-none`} title={color.name}></button>
+                        <button 
+                          key={color.name} 
+                          onClick={() => setSelectedColor(color.name)}
+                          className={`w-[36px] h-[36px] rounded-full ${color.hex} border-[3px] border-white ring-1 transition-all outline-none ${selectedColor === color.name ? 'ring-black ring-2' : 'ring-light-gray hover:ring-black'}`} 
+                          title={color.name}
+                        ></button>
                       ))}
                     </div>
                   </div>
 
                   {/* Add to Cart */}
-                  <Button variant="primary" className="w-full mb-8 py-4 text-[16px]">ADD TO CART</Button>
+                  <Link href={user ? "/cart" : "/account"} className="block w-full mb-8">
+                    <Button variant="primary" className="w-full py-4 text-[16px]">ADD TO CART</Button>
+                  </Link>
 
                   {/* Details */}
                   <div className="prose prose-sm font-sans text-dark-gray mb-10">

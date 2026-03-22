@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
@@ -5,17 +7,43 @@ import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Trash2 } from "lucide-react";
+import { useAuth } from "@/components/providers/AuthProvider";
 
 export default function CartPage() {
+  const { user, isLoaded } = useAuth();
+
+  if (!isLoaded) return null;
+
+  if (!user) {
+    return (
+      <>
+        <Navbar />
+        <div className="h-[80px] bg-white w-full"></div>
+        <main className="flex-grow bg-white py-[100px] min-h-[60vh] flex flex-col items-center justify-center">
+          <div className="max-w-[500px] mx-auto px-8 text-center">
+            <FadeIn>
+              <h1 className="font-serif text-[40px] tracking-[0.15em] uppercase mb-6 text-black">Sign In Required</h1>
+              <p className="font-sans text-[16px] text-dark-gray mb-10">Please sign in or create an account to view and manage your cart.</p>
+              <Link href="/account">
+                <Button variant="primary" className="w-full">SIGN IN</Button>
+              </Link>
+            </FadeIn>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
       <div className="h-[80px] bg-white w-full"></div>
       
-      <main className="flex-grow bg-white py-16">
+      <main className="flex-grow bg-white py-[100px]">
         <div className="max-w-[1200px] mx-auto px-8">
           <FadeIn>
-            <h1 className="font-serif text-[40px] mb-12 border-b border-light-gray/40 pb-6 text-black">Your Cart</h1>
+            <h1 className="font-serif text-[40px] tracking-[0.15em] uppercase mb-12 border-b border-light-gray/40 pb-6 text-black">Your Cart</h1>
             
             <div className="flex flex-col lg:flex-row gap-16">
               
