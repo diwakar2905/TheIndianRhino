@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-32 md:pt-36">
         
         {/* SECTION 1: HERO */}
         <section className="relative h-screen w-full flex items-center bg-black overflow-hidden relative">
@@ -24,13 +24,13 @@ export default function Home() {
             />
           </div>
           
-          <div className="relative z-10 max-w-[1200px] mx-auto px-8 w-full flex justify-start">
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 w-full flex justify-start">
             <FadeIn>
-              <h1 className="font-serif text-[56px] md:text-[64px] text-white leading-[1.1] mb-6 tracking-[0.15em]">
+              <h1 className="font-serif text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] text-white leading-[1.1] mb-6 tracking-[0.15em]">
                 INDIAN RHINO<br />
-                <span className="italic font-light text-[40px] md:text-[48px]">Life is a beautiful sport.</span>
+                <span className="italic font-light text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">Life is a beautiful sport.</span>
               </h1>
-              <p className="text-white text-[16px] md:text-[18px] max-w-md font-sans mb-12 opacity-[0.85] leading-[1.6]">
+              <p className="text-white text-[14px] sm:text-[16px] md:text-[18px] max-w-md font-sans mb-12 opacity-[0.85] leading-[1.6]">
                 Embrace the heritage. Premium polos and essentials offering unwavering elegance and freedom of movement since 2026.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -46,10 +46,10 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: CATEGORIES */}
-        <section className="py-[100px] bg-white">
-          <div className="max-w-[1200px] mx-auto px-8">
+        <section className="py-12 sm:py-16 md:py-[100px] bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
             <FadeIn>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-[40px]">
                 {[
                   { name: "POLOS", img: "/images/polo_card.png", link: "/shop?category=polos" },
                   { name: "T-SHIRTS", img: "/images/tshirt_card.png", link: "/shop?category=tshirts" },
@@ -79,9 +79,9 @@ export default function Home() {
         </section>
 
         {/* SECTION 2.5: THE POLO HERITAGE */}
-        <section className="py-[100px] bg-beige">
-          <div className="max-w-[1200px] mx-auto px-8">
-            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        <section className="py-12 sm:py-16 md:py-[100px] bg-beige">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+              <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-10 md:gap-12 lg:gap-20">
               <div className="w-full md:w-1/2">
                 <FadeIn>
                   <div className="relative aspect-[4/5] bg-white border border-light-gray/30 p-8 flex items-center justify-center">
@@ -110,8 +110,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: FEATURED PRODUCTS */}
-        <section className="py-[100px] bg-white border-t border-light-gray/20">
-          <div className="max-w-[1200px] mx-auto px-8">
+        <section className="py-12 sm:py-16 md:py-[100px] bg-white border-t border-light-gray/20">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="font-serif text-[36px] md:text-[42px] tracking-[0.15em] uppercase text-black relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-black">
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
             </FadeIn>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-[40px]">
               {[
                 { id: "1", name: "Rhino Classic Polo", price: "₹1,299", images: ["/images/polo_card.png", "/images/hero_polo.png"] },
                 { id: "2", name: "Essential White Tee", price: "₹899", images: ["/images/tshirt_card.png", "/images/shirt_card.png"] },
@@ -136,8 +136,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: BRAND STORY BANNER */}
-        <section className="py-[100px] bg-beige">
-          <div className="max-w-[800px] mx-auto px-8 text-center text-black">
+        <section className="py-12 sm:py-16 md:py-[100px] bg-beige">
+          <div className="max-w-[800px] mx-auto px-4 sm:px-6 md:px-8 text-center text-black">
             <FadeIn>
               <h2 className="font-serif text-[36px] md:text-[42px] tracking-[0.15em] uppercase mb-8 leading-[1.2]">
                 Strength. Simplicity. Timeless Design.

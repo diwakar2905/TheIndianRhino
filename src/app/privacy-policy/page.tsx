@@ -6,10 +6,10 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Navbar />
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
-      <main className="flex-grow bg-white py-16">
-        <div className="max-w-[800px] mx-auto px-8">
+      <main className="flex-grow bg-white py-8 sm:py-12 md:py-16">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn>
             <h1 className="font-serif text-[40px] mb-8 text-black border-b border-light-gray/40 pb-6">Privacy Policy</h1>
             

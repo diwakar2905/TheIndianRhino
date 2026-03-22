@@ -18,9 +18,9 @@ export default function CartPage() {
     return (
       <>
         <Navbar />
-        <div className="h-[80px] bg-white w-full"></div>
-        <main className="flex-grow bg-white py-[100px] min-h-[60vh] flex flex-col items-center justify-center">
-          <div className="max-w-[500px] mx-auto px-8 text-center">
+        <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
+        <main className="flex-grow bg-white py-8 sm:py-12 md:py-[100px] min-h-[60vh] flex flex-col items-center justify-center">
+          <div className="max-w-[500px] mx-auto px-4 sm:px-6 md:px-8 text-center">
             <FadeIn>
               <h1 className="font-serif text-[40px] tracking-[0.15em] uppercase mb-6 text-black">Sign In Required</h1>
               <p className="font-sans text-[16px] text-dark-gray mb-10">Please sign in or create an account to view and manage your cart.</p>

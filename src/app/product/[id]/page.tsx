@@ -27,10 +27,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   return (
     <>
       <Navbar />
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
       <main className="flex-grow bg-white">
-        <div className="max-w-[1200px] mx-auto px-8 py-12">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12">
           
           <div className="mb-8">
             <Link href="/shop" className="inline-flex items-center text-sm font-sans text-dark-gray hover:text-black transition-colors">

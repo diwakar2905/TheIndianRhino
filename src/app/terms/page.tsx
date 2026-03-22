@@ -6,10 +6,10 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
-      <main className="flex-grow bg-white py-[100px]">
-        <div className="max-w-[800px] mx-auto px-8">
+      <main className="flex-grow bg-white py-8 sm:py-12 md:py-[100px]">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn>
             <h1 className="font-serif text-[40px] tracking-[0.15em] uppercase mb-8 text-black text-center">Terms of Service</h1>
             <div className="prose prose-sm max-w-none text-dark-gray font-sans leading-[1.8]">

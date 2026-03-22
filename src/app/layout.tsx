@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/Blue and White Business Company Logo (2).png",
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 import { AuthProvider } from "@/components/providers/AuthProvider";

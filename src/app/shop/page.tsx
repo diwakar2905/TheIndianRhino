@@ -21,10 +21,10 @@ export default function ShopPage() {
     <>
       <Navbar />
       {/* Spacer for sticky navbar */}
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
       <main className="flex-grow bg-white">
-        <div className="max-w-[1400px] mx-auto px-8 py-12">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12">
           
           {/* Top Bar */}
           <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-10 pb-4 border-b border-light-gray/60">

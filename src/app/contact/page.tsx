@@ -7,13 +7,13 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
-      <main className="flex-grow bg-white py-20">
-        <div className="max-w-[800px] mx-auto px-8">
+      <main className="flex-grow bg-white py-8 sm:py-12 md:py-20">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn>
-            <h1 className="font-serif text-[40px] mb-6 text-black">Contact Us</h1>
-            <p className="font-sans text-dark-gray mb-12">
+            <h1 className="font-serif text-[32px] sm:text-[40px] mb-6 text-black">Contact Us</h1>
+            <p className="font-sans text-[14px] sm:text-base text-dark-gray mb-8 sm:mb-12 max-w-2xl">
               Have a question about your order, sizing, or our products? 
               Fill out the form below or email us at <a href="mailto:support@indianrhino.in" className="underline hover:text-black">support@indianrhino.in</a>.
             </p>

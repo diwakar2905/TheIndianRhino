@@ -29,10 +29,10 @@ export default function AccountPage() {
   return (
     <>
       <Navbar />
-      <div className="h-[80px] bg-white w-full"></div>
+      <div className="h-28 sm:h-32 md:h-36 bg-white w-full"></div>
       
-      <main className="flex-grow bg-white py-[100px] min-h-[70vh]">
-        <div className={user ? "max-w-[1200px] mx-auto px-8" : "max-w-[500px] mx-auto px-8"}>
+      <main className="flex-grow bg-white py-8 sm:py-12 md:py-[100px] min-h-[70vh]">
+        <div className={user ? "max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8" : "max-w-[500px] mx-auto px-4 sm:px-6 md:px-8"}>
           
           {user ? (
             <FadeIn>

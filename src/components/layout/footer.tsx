@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-dark-gray)] text-[var(--color-light-gray)] pt-20 pb-10 px-8">
+    <footer className="bg-[var(--color-dark-gray)] text-[var(--color-light-gray)] pt-12 sm:pt-16 md:pt-20 pb-8 px-4 sm:px-6 md:px-8">
       <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           <div>
             <div className="mb-6">
               <Image 
@@ -53,9 +53,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-light-gray/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-light-gray/60">
+        <div className="border-t border-light-gray/20 pt-6 md:pt-8 flex flex-col gap-6 md:flex-row md:justify-between md:items-center text-xs text-light-gray/60">
           <p>© 2026 Indian Rhino. All Rights Reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
