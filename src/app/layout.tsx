@@ -15,6 +15,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Indian Rhino | Premium Fashion",
   description: "Built Strong. Worn Simple. Premium essentials designed for everyday wear.",
+  icons: {
+    icon: "/images/Blue and White Business Company Logo (2).png",
+  },
 };
 
 import { AuthProvider } from "@/components/providers/AuthProvider";
