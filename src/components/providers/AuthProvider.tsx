@@ -7,7 +7,7 @@ interface User {
   email: string;
 }
 
-interface AuthContextType {
+interface AuthContextType { 
   user: User | null;
   isLoaded: boolean;
   login: (email: string, pass?: string) => void;

@@ -1,10 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 export default function CheckoutPage() {
+  const router = useRouter();
+
+  const handleCheckout = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/checkout/success");
+  };
   return (
     <>
       <Navbar />
@@ -16,12 +25,12 @@ export default function CheckoutPage() {
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
               
               {/* Checkout Form */}
-              <div className="w-full lg:w-3/5">
+              <form onSubmit={handleCheckout} className="w-full lg:w-3/5">
                 <h1 className="font-serif text-[32px] mb-8 text-black">Checkout</h1>
 
                 <div className="mb-10">
                   <h2 className="font-sans text-sm font-bold uppercase tracking-widest mb-6 text-black border-b border-light-gray/40 pb-2">Contact Information</h2>
-                  <input type="email" placeholder="Email" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors mb-4" />
+                  <input type="email" required placeholder="Email" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors mb-4" />
                 </div>
 
                 <div className="mb-10">
@@ -29,23 +38,23 @@ export default function CheckoutPage() {
                   
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <input type="text" placeholder="First Name" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
-                      <input type="text" placeholder="Last Name" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                      <input type="text" required placeholder="First Name" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                      <input type="text" required placeholder="Last Name" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
                     </div>
-                    <input type="text" placeholder="Address" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                    <input type="text" required placeholder="Address" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
                     <input type="text" placeholder="Apartment, suite, etc. (optional)" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
                     
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <input type="text" placeholder="City" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
-                      <select className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors cursor-pointer bg-white text-dark-gray">
-                        <option>State</option>
-                        <option>Maharashtra</option>
-                        <option>Delhi</option>
-                        <option>Karnataka</option>
+                      <input type="text" required placeholder="City" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                      <select required className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors cursor-pointer bg-white text-dark-gray">
+                        <option value="">State</option>
+                        <option value="MH">Maharashtra</option>
+                        <option value="DL">Delhi</option>
+                        <option value="KA">Karnataka</option>
                       </select>
-                      <input type="text" placeholder="PIN Code" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                      <input type="text" required placeholder="PIN Code" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
                     </div>
-                    <input type="tel" placeholder="Phone" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
+                    <input type="tel" required placeholder="Phone" className="w-full border border-light-gray p-4 focus:outline-none focus:border-black font-sans text-sm transition-colors" />
                   </div>
                 </div>
 
@@ -55,11 +64,9 @@ export default function CheckoutPage() {
                     <p className="font-sans text-sm text-dark-gray text-center">After clicking &quot;Pay Now&quot;, you will be redirected to Razorpay to complete your purchase securely.</p>
                   </div>
                   
-                  <Link href="/checkout/success" className="block w-full">
-                    <Button variant="primary" className="w-full py-4 text-[16px]">PAY NOW</Button>
-                  </Link>
+                  <Button type="submit" variant="primary" className="w-full py-4 text-[16px]">PAY NOW</Button>
                 </div>
-              </div>
+              </form>
 
               {/* Order Summary Sidebar */}
               <div className="w-full lg:w-2/5">
